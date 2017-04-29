@@ -1,0 +1,7 @@
+# Use this file to specify parameters, that do not have default values.
+# YAML Files can also be helpfull if you want to save parameters for different use-cases.
+# In any way: Default values should go into the .mrtcfg file!
+#
+# Use 'key: value' pairs, e.g.
+
+
