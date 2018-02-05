@@ -5,8 +5,6 @@
 #include <string>
 #include <ros/ros.h>
 
-#include "automated_driving_msgs/BasicSafetyMessage.h"
-#include "automated_driving_msgs/ObjectState.h"
 
 class NetSim {
 

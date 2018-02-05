@@ -17,7 +17,6 @@
   <depend>nodelet</depend>
 
   <depend>topic_tools</depend>
-  <depend>automated_driving_msgs</depend>
   <depend>dynamic_reconfigure</depend>
   <depend>rosparam_handler</depend>
   <export>

@@ -33,15 +33,13 @@ NetSim::Delay NetSim::getDelayParametersGauss() {
         break;
 
     case 2:
-        retVal.mean =
-            rand() / static_cast<double>(RAND_MAX) * 1.5 + 1.5; // put your functions there....
+        retVal.mean = rand() / static_cast<double>(RAND_MAX) * 1.5 + 1.5;  // put your functions there....
         retVal.dev = rand() / static_cast<double>(RAND_MAX) * 0.18 + 0.02; // .. and there
         break;
 
     case 3:
-        retVal.mean =
-            rand() / static_cast<double>(RAND_MAX) * 1.5 + 3.5; // put your functions there....
-        retVal.dev = rand() / static_cast<double>(RAND_MAX) * 0.8 + 0.2; // .. and there
+        retVal.mean = rand() / static_cast<double>(RAND_MAX) * 1.5 + 3.5; // put your functions there....
+        retVal.dev = rand() / static_cast<double>(RAND_MAX) * 0.8 + 0.2;  // .. and there
         break;
 
     default:

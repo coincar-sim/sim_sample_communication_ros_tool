@@ -1,7 +1,6 @@
 #include <comm_module/comm_module.hpp>
 
 using namespace topic_tools;
-using namespace automated_driving_msgs;
 
 namespace sim_sample_communication_ros_tool {
 
@@ -22,26 +21,27 @@ CommModule::CommModule(ros::NodeHandle node_handle, ros::NodeHandle private_node
      * Publishers & subscriber
      */
     // Subscriber for generic messages from random external topics. Networksimulation possible.
-    subExIn_ = node_handle.subscribe<ShapeShifter>(
-        params_.communication_external_topic,
-        params_.msg_queue_size,
-        boost::bind(&CommModule::subCallbackExIn, this, node_handle, _1));
+    subExIn_ = node_handle.subscribe<ShapeShifter>(params_.communication_external_topic,
+                                                   params_.msg_queue_size,
+                                                   boost::bind(&CommModule::subCallbackExIn, this, node_handle, _1));
 
     // Subscriber for internal to external communication. No networksimulation required.
-    subInEx_ = node_handle.subscribe<ShapeShifter>(
-        params_.communication_internal_out_topic,
-        params_.msg_queue_size,
-        boost::bind(&CommModule::subCallbackInEx, this, node_handle, _1));
+    subInEx_ = node_handle.subscribe<ShapeShifter>(params_.communication_internal_out_topic,
+                                                   params_.msg_queue_size,
+                                                   boost::bind(&CommModule::subCallbackInEx, this, node_handle, _1));
 }
 
 /**
  *  External -> internal communication.
  *  realizes time-delay and message_drop
  */
-void CommModule::subCallbackExIn(ros::NodeHandle& nh,
-                                 const boost::shared_ptr<const ShapeShifter> msg) {
-    pubExIn_ =
-        msg->advertise(nh, params_.communication_internal_in_topic, params_.msg_queue_size, false);
+void CommModule::subCallbackExIn(ros::NodeHandle& nh, const boost::shared_ptr<const ShapeShifter> msg) {
+
+    if (!pubExInInitialized_) {
+        // initialize publisher with first message
+        pubExIn_ = msg->advertise(nh, params_.communication_internal_in_topic, params_.msg_queue_size, false);
+        pubExInInitialized_ = true;
+    }
 
     if (params_.time_delay > 0) {
         timeDelay(msg);
@@ -55,10 +55,13 @@ void CommModule::subCallbackExIn(ros::NodeHandle& nh,
  * No Netwirk-Simulation required.
  */
 
-void CommModule::subCallbackInEx(ros::NodeHandle& nh,
-                                 const boost::shared_ptr<const ShapeShifter> msg) {
-    pubInEx_ =
-        msg->advertise(nh, params_.communication_external_topic, params_.msg_queue_size, false);
+void CommModule::subCallbackInEx(ros::NodeHandle& nh, const boost::shared_ptr<const ShapeShifter> msg) {
+
+    if (!pubInExInitialized_) {
+        // initialize publisher with first message
+        pubInEx_ = msg->advertise(nh, params_.communication_external_topic, params_.msg_queue_size, false);
+        pubInExInitialized_ = true;
+    }
 
     pubInEx_.publish(*msg);
 }
