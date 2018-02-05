@@ -59,6 +59,8 @@ void CommModule::subCallbackInEx(ros::NodeHandle& nh,
                                  const boost::shared_ptr<const ShapeShifter> msg) {
     pubInEx_ =
         msg->advertise(nh, params_.communication_external_topic, params_.msg_queue_size, false);
+
+    pubInEx_.publish(*msg);
 }
 
 
