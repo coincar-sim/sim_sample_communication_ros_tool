@@ -1,0 +1,46 @@
+<launch>
+
+    <arg name="vehicle_id" value="1" />
+    <arg name="vehicle_ns" value="v$(arg vehicle_id)" />
+    <arg name="objects_ground_truth_topic_with_ns" value="/sim/objects_ground_truth" />
+    <arg name="global_communication_ns" value="/sim/comm" />
+    <arg name="internal_communication_subns" value="comm" />
+    <arg name="car2x_topic1" value="testtopic1" />
+    <arg name="car2x_topic2" value="testtopic2" />
+
+    <!-- launch communication -->
+    <include file="$(find sim_sample_communication_ros_tool)/launch/sample_communication.launch" ns="$(arg internal_communication_subns)" >
+        <arg name="vehicle_id" value="$(arg vehicle_id)" />
+        <arg name="vehicle_ns" value="$(arg vehicle_ns)" />
+
+        <arg name="objects_ground_truth_topic_with_ns" value="$(arg objects_ground_truth_topic_with_ns)" />
+        <arg name="global_communication_ns" value="$(arg global_communication_ns)" />
+        <arg name="internal_communication_subns" value="$(arg internal_communication_subns)" />
+
+        <arg name="car2x_topic1" value="$(arg car2x_topic1)" />
+        <arg name="car2x_topic2" value="$(arg car2x_topic2)" />
+    </include>
+
+    <!--
+    Publishing on global topic, to be forwarded internally:
+    from /sim/comm/testtopic1 to /v1/comm/in/testtopic1
+    -->
+    <node pkg="rostopic" type="rostopic" name="incoming_publisher" args="pub -r 1 $(arg global_communication_ns)/$(arg car2x_topic1) std_msgs/Header '{seq: 0, stamp: 0, frame_id: test_frame}'" output="screen">
+    </node>
+
+    <test test-name="test_forwarding_incoming" pkg="sim_sample_communication_ros_tool" type="communication_test.py" time-limit="60.0" ns="io">
+        <param name="subscriber_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/in/$(arg car2x_topic1)"/>
+    </test>
+
+    <!--
+    Publishing on internal topic, to be forwarded globally:
+    from /v1/comm/out/testtopic2 to /sim/comm/testtopic2
+    -->
+    <node pkg="rostopic" type="rostopic" name="outgoing_publisher" args="pub -r 1 /$(arg vehicle_ns)/$(arg internal_communication_subns)/out/$(arg car2x_topic2) std_msgs/Header '{seq: 0, stamp: 0, frame_id: test_frame}'" output="screen">
+    </node>
+
+    <test test-name="test_forwarding_outgoing" pkg="sim_sample_communication_ros_tool" type="communication_test.py" time-limit="60.0" ns="oi">
+        <param name="subscriber_topic" value="$(arg global_communication_ns)/$(arg car2x_topic2)"/>
+    </test>
+
+</launch>
