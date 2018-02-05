@@ -20,9 +20,9 @@
     <!-- For Car2X-Topic 1 -->
     <node pkg="sim_sample_communication_ros_tool" type="comm_module" name="com_mgmt_$(arg car2x_topic1)" output="screen">
 
-            <remap from="default_communication_external_topic" to="/$(arg global_communication_ns)/$(arg car2x_topic1)" />
-            <remap from="default_communication_internal_in_topic" to="/$(arg vehicle_ns)/$(arg internal_communication_subns)/in/$(arg car2x_topic1)" />
-            <remap from="default_communication_internal_out_topic" to="/$(arg vehicle_ns)/$(arg internal_communication_subns)/out/$(arg car2x_topic1)" />
+            <param name="communication_external_topic" value="$(arg global_communication_ns)/$(arg car2x_topic1)" />
+            <param name="communication_internal_in_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/in/$(arg car2x_topic1)" />
+            <param name="communication_internal_out_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/out/$(arg car2x_topic1)" />
 
             <!-- Vehicle-related -->
             <param name="vehicle_id" value="$(arg vehicle_id)" />
@@ -33,9 +33,9 @@
     <!-- For Car2X-Topic 2 -->
     <node pkg="sim_sample_communication_ros_tool" type="comm_module" name="com_mgmt_$(arg car2x_topic2)" output="screen">
 
-            <remap from="default_communication_external_topic" to="/$(arg global_communication_ns)/$(arg car2x_topic2)" />
-            <remap from="default_communication_internal_in_topic" to="/$(arg vehicle_ns)/$(arg internal_communication_subns)/in/$(arg car2x_topic2)" />
-            <remap from="default_communication_internal_out_topic" to="/$(arg vehicle_ns)/$(arg internal_communication_subns)/out/$(arg car2x_topic2)" />
+            <param name="communication_external_topic" value="$(arg global_communication_ns)/$(arg car2x_topic2)" />
+            <param name="communication_internal_in_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/in/$(arg car2x_topic2)" />
+            <param name="communication_internal_out_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/out/$(arg car2x_topic2)" />
 
             <!-- Vehicle-related -->
             <param name="vehicle_id" value="$(arg vehicle_id)" />
@@ -46,9 +46,9 @@
     <!-- For Car2X-Topic 3 -->
     <node pkg="sim_sample_communication_ros_tool" type="comm_module" name="com_mgmt_$(arg car2x_topic3)" output="screen">
 
-            <remap from="default_communication_external_topic" to="/$(arg global_communication_ns)/$(arg car2x_topic3)" />
-            <remap from="default_communication_internal_in_topic" to="/$(arg vehicle_ns)/$(arg internal_communication_subns)/in/$(arg car2x_topic3)" />
-            <remap from="default_communication_internal_out_topic" to="/$(arg vehicle_ns)/$(arg internal_communication_subns)/out/$(arg car2x_topic3)" />
+            <param name="communication_external_topic" value="$(arg global_communication_ns)/$(arg car2x_topic3)" />
+            <param name="communication_internal_in_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/in/$(arg car2x_topic3)" />
+            <param name="communication_internal_out_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/out/$(arg car2x_topic3)" />
 
             <!-- Vehicle-related -->
             <param name="vehicle_id" value="$(arg vehicle_id)" />
