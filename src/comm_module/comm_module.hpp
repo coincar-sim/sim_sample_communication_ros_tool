@@ -8,7 +8,7 @@
 
 #include "comm_module/net_sim.hpp"
 
-#include "sim_sample_communication_ros_tool/CommModuleParameters.h"
+#include "sim_sample_communication_ros_tool/CommModuleInterface.h"
 
 
 namespace sim_sample_communication_ros_tool {
@@ -26,7 +26,7 @@ private:
 
     dynamic_reconfigure::Server<CommModuleConfig> reconfigSrv_; // Dynamic reconfiguration service
 
-    sim_sample_communication_ros_tool::CommModuleParameters params_;
+    sim_sample_communication_ros_tool::CommModuleInterface params_;
 
     bool pubInExInitialized_ = false;
     bool pubExInInitialized_ = false;
