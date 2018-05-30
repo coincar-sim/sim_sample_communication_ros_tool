@@ -5,7 +5,7 @@ It models characteristics of vehicle to vehicle communication, such as delay and
 
 ## Installation
 * this package is part of the simulation framework
-* see simulation_initialization_ros_tool for installation and more details
+* see [coincarsim_getting_started](https://github.com/coincar-sim/coincarsim_getting_started) for installation and more details
 
 ## Usage
 * started within a vehicle launchfile of the simulation_initialization_ros_tool
@@ -29,7 +29,6 @@ It models characteristics of vehicle to vehicle communication, such as delay and
   * **drop_probability**: Artificial drop probability for communication characteristics simulation [0..1]
 
 ## Contribution
-
 * fork this repo
 * use your own algorithms for modeling communication characteristics
 * every message type is treated by a separate node
@@ -45,5 +44,8 @@ It models characteristics of vehicle to vehicle communication, such as delay and
      * `$(arg global_communication_ns)/$(arg car2x_topic1)`
      * without additional delay
 
+## Contributors
+Tobias Kronauer, Maximilian Naumann
+
 ## License
-Contact the maintainer.
+This package is distributed under the 3-Clause BSD License, see [LICENSE](LICENSE).
