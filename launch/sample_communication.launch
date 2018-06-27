@@ -14,7 +14,7 @@
    <arg name="car2x_topic1" default="dummy_car2x_topic1"/>
    <arg name="car2x_topic2" default="dummy_car2x_topic2"/>
    <arg name="car2x_topic3" default="dummy_car2x_topic3"/>
-   <arg name="clear_queue_topic" />
+   <arg name="clear_queue_topic" default="default_communication_clear_queue_topic"/>
 
     <!-- LAUNCH NODES -->
     <!-- For Car2X-Topic 1 -->
