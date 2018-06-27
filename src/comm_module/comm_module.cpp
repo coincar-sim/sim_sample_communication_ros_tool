@@ -60,8 +60,20 @@ CommModule::CommModule(ros::NodeHandle node_handle, ros::NodeHandle private_node
                                                    params_.msg_queue_size,
                                                    boost::bind(&CommModule::subCallbackInEx, this, node_handle, _1));
 
-    pubExInTimer_ = node_handle.createTimer(ros::Duration(backupTimerDuration_), &CommModule::timerCallback, this);
-}
+        subClearQueue_ = node_handle.subscribe<std_msgs::Bool>(params_.clear_queue_topic,
+                                                               params_.msg_queue_size,
+                                                               &CommModule::subCallbackClearQueue, this);
+
+        pubExInTimer_ = node_handle.createTimer(ros::Duration(backupTimerDuration_), &CommModule::timerCallback, this);
+    }
+
+    void CommModule::subCallbackClearQueue(const std_msgs::Bool::ConstPtr &msg){
+        if(msg->data){
+            while(!messageBuffer_.empty()){
+                messageBuffer_.pop();
+            }
+        }
+    }
 
 
 void CommModule::subCallbackExIn(ros::NodeHandle& nh, const boost::shared_ptr<const ShapeShifter> msg) {
