@@ -1,4 +1,4 @@
-<library path="lib/libcomm_module_nodelet">
+<library path="lib/libsim_sample_communication_ros_tool-comm_module-nodelet">
 <class name="sim_sample_communication_ros_tool/CommModuleNodelet"
        type="sim_sample_communication_ros_tool::CommModuleNodelet" base_class_type="nodelet::Nodelet">
   <description></description>
