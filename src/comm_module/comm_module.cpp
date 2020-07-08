@@ -28,7 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <comm_module/comm_module.hpp>
+#include "comm_module.hpp"
 
 using namespace topic_tools;
 
