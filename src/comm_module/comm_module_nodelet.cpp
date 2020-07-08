@@ -28,9 +28,9 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <comm_module/comm_module.hpp>
 #include <nodelet/nodelet.h>
 #include <pluginlib/class_list_macros.h>
+#include "comm_module.hpp"
 
 namespace sim_sample_communication_ros_tool {
 
@@ -46,5 +46,4 @@ void ReceiverNodelet::onInit() {
 
 } // namespace sim_sample_communication_ros_tool
 
-PLUGINLIB_EXPORT_CLASS(sim_sample_communication_ros_tool::ReceiverNodelet,
-                       nodelet::Nodelet);
+PLUGINLIB_EXPORT_CLASS(sim_sample_communication_ros_tool::ReceiverNodelet, nodelet::Nodelet);

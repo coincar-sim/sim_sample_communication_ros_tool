@@ -28,7 +28,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <comm_module/comm_module.hpp>
+#include "comm_module.hpp"
 
 using namespace topic_tools;
 
@@ -174,8 +174,8 @@ bool CommModule::dropMessageBasedOnRandomDecision(double dropProbability) {
 
 
 /**
-  * This callback is called whenever a change was made in the dynamic_reconfigure window
-*/
+ * This callback is called whenever a change was made in the dynamic_reconfigure window
+ */
 void CommModule::reconfigureRequest(CommModuleConfig& config, uint32_t level) {
     params_.fromConfig(config);
     timerCallback(ros::TimerEvent());
