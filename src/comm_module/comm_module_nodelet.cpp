@@ -46,5 +46,4 @@ void ReceiverNodelet::onInit() {
 
 } // namespace sim_sample_communication_ros_tool
 
-PLUGINLIB_EXPORT_CLASS(sim_sample_communication_ros_tool::ReceiverNodelet,
-                       nodelet::Nodelet);
+PLUGINLIB_EXPORT_CLASS(sim_sample_communication_ros_tool::ReceiverNodelet, nodelet::Nodelet);
