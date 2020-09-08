@@ -37,6 +37,7 @@
 #include <ros/console.h>
 #include <ros/ros.h>
 #include <topic_tools/shape_shifter.h>
+#include <std_msgs/Bool.h>
 
 #include "sim_sample_communication_ros_tool/CommModuleInterface.h"
 
@@ -58,6 +59,7 @@ private:
     ros::Publisher pubExIn_;
     ros::Subscriber subExIn_;
     ros::Subscriber subInEx_;
+    ros::Subscriber subClearQueue_;
     ros::Timer pubExInTimer_;
 
     dynamic_reconfigure::Server<CommModuleConfig> reconfigSrv_; // Dynamic reconfiguration service
@@ -70,6 +72,7 @@ private:
     bool pubInExInitialized_ = false;
     bool pubExInInitialized_ = false;
 
+    void subCallbackClearQueue(const std_msgs::Bool::ConstPtr &msg);
     void subCallbackExIn(ros::NodeHandle&, const boost::shared_ptr<const topic_tools::ShapeShifter>);
     void subCallbackInEx(ros::NodeHandle&, const boost::shared_ptr<const topic_tools::ShapeShifter>);
     void timerCallback(const ros::TimerEvent&);

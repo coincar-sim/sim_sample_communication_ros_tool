@@ -24,6 +24,7 @@ It models characteristics of vehicle to vehicle communication, such as delay and
   * **car2x_topic2** (_optional_): Topic for car2x message type 2
   * **car2x_topic3** (_optional_): Topic for car2x message type 3
 
+  * **clear_queue_topic** (_optional_): Topic to clear the message queue
 
 * parameters that can be dynamically reconfigured:
 

@@ -14,7 +14,7 @@
    <arg name="car2x_topic1" default="dummy_car2x_topic1"/>
    <arg name="car2x_topic2" default="dummy_car2x_topic2"/>
    <arg name="car2x_topic3" default="dummy_car2x_topic3"/>
-
+   <arg name="clear_queue_topic" default="default_communication_clear_queue_topic"/>
 
     <!-- LAUNCH NODES -->
     <!-- For Car2X-Topic 1 -->
@@ -23,6 +23,7 @@
             <param name="communication_external_topic" value="$(arg global_communication_ns)/$(arg car2x_topic1)" />
             <param name="communication_internal_in_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/in/$(arg car2x_topic1)" />
             <param name="communication_internal_out_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/out/$(arg car2x_topic1)" />
+            <param name="clear_queue_topic" value="$(arg clear_queue_topic)" />
 
             <!-- Vehicle-related -->
             <param name="vehicle_id" value="$(arg vehicle_id)" />
@@ -36,6 +37,7 @@
             <param name="communication_external_topic" value="$(arg global_communication_ns)/$(arg car2x_topic2)" />
             <param name="communication_internal_in_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/in/$(arg car2x_topic2)" />
             <param name="communication_internal_out_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/out/$(arg car2x_topic2)" />
+            <param name="clear_queue_topic" value="$(arg clear_queue_topic)" />
 
             <!-- Vehicle-related -->
             <param name="vehicle_id" value="$(arg vehicle_id)" />
@@ -49,6 +51,7 @@
             <param name="communication_external_topic" value="$(arg global_communication_ns)/$(arg car2x_topic3)" />
             <param name="communication_internal_in_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/in/$(arg car2x_topic3)" />
             <param name="communication_internal_out_topic" value="/$(arg vehicle_ns)/$(arg internal_communication_subns)/out/$(arg car2x_topic3)" />
+            <param name="clear_queue_topic" value="$(arg clear_queue_topic)" />
 
             <!-- Vehicle-related -->
             <param name="vehicle_id" value="$(arg vehicle_id)" />

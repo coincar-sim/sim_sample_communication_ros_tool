@@ -49,6 +49,7 @@ gen.add_verbosity_param(configurable=True)
 gen.add("communication_internal_in_topic", paramtype='std::string', description="Topicname for subscriber", default="default_communication_internal_in_topic")
 gen.add("communication_internal_out_topic", paramtype='std::string', description="Topicname for publisher", default="default_communication_internal_out_topic")
 gen.add("communication_external_topic", paramtype='std::string', description="Topicname for publisher", default="default_communication_external_topic")
+gen.add("clear_queue_topic", paramtype='std::string', description="Topicname for subscriber", default="default_communication_clear_queue_topic")
 
 # network-simulation-related
 gen.add("time_delay", paramtype='double', description="Time delay in seconds", min=0, max=10, default=0, configurable=True, global_scope=False)
