@@ -5,7 +5,7 @@
   <description>Sample communication module for a vehicle in the simulation framework.</description>
 
   <license>BSD</license>
-  <maintainer email="eduardo.molinos@kit.edu">Eduardo Molinos</maintainer>
+  <maintainer email="eduardo.molinos@kit.edu">molinos</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>mrt_cmake_modules</build_depend>
